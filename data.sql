@@ -45,3 +45,12 @@ INSERT INTO animals (
         weight_kg
     )
 VALUES ('Angemon', 'Jun 12, 2005', 1, true, 45);
+
+INSERT INTO animals (
+        name,
+        date_of_birth,
+        escape_attempts,
+        neutered,
+        weight_kg
+    )
+VALUES ('Boarmon', 'Jun 7, 2005', 7, true, 20.4);
