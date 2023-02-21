@@ -8,3 +8,13 @@ INSERT INTO animals (name, date_of_birth, escape_attempts, neutered, weight_kg)
 VALUES ('Pikachu', 'Jan 7, 2021', 1, false, 15.04);
 INSERT INTO animals (name, date_of_birth, escape_attempts, neutered, weight_kg)
 VALUES ('Devimon', 'May 12, 2017', 5, true, 11);
+
+/* Project - query and update animals table */
+INSERT INTO animals (
+        name,
+        date_of_birth,
+        escape_attempts,
+        neutered,
+        weight_kg
+    )
+VALUES ('Charmander', 'Feb 8, 2020', 0, false, 11);
