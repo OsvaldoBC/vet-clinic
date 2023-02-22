@@ -72,3 +72,9 @@ SELECT neutered,
     SUM(escape_attempts)
 FROM animals
 GROUP BY neutered;
+
+SELECT species,
+    MAX(weight_kg),
+    MIN(weight_kg)
+FROM animals
+GROUP BY species;
