@@ -78,3 +78,9 @@ SELECT species,
     MIN(weight_kg)
 FROM animals
 GROUP BY species;
+
+SELECT species,
+    AVG(escape_attempts)
+FROM animals
+WHERE date_of_birth BETWEEN 'Jan 01, 1990' AND 'Dec 31, 2000'
+GROUP BY species;
