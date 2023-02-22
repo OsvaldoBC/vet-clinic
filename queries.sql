@@ -27,3 +27,60 @@ SELECT *
 FROM animals
 WHERE weight_kg BETWEEN 10.4 AND 17.3;
 
+/*Query and update animals table*/
+BEGIN;
+UPDATE animals
+SET species = 'unspecified';
+ROLLBACK;
+
+BEGIN;
+UPDATE animals
+SET species = 'digimon'
+WHERE name LIKE '%mon';
+UPDATE animals
+SET species = 'pokemon'
+WHERE species IS NULL;
+COMMIT;
+
+BEGIN;
+DELETE FROM animals;
+ROLLBACK;
+
+BEGIN;
+DELETE FROM animals
+WHERE date_of_birth > 'Jan 1, 2022';
+SAVEPOINT savepoint1;
+UPDATE animals
+SET weight_kg = (weight_kg * -1);
+ROLLBACK TO SAVEPOINT savepoint1;
+UPDATE animals
+SET weight_kg = (weight_kg * -1)
+WHERE weight_kg < 0;
+COMMIT;
+
+SELECT COUNT(*)
+FROM animals;
+
+SELECT COUNT(*)
+FROM animals
+WHERE escape_attempts = 0;
+
+SELECT AVG(weight_kg)
+FROM animals;
+
+SELECT neutered,
+    SUM(escape_attempts)
+FROM animals
+GROUP BY neutered;
+
+SELECT species,
+    MAX(weight_kg),
+    MIN(weight_kg)
+FROM animals
+GROUP BY species;
+
+SELECT species,
+    AVG(escape_attempts)
+FROM animals
+WHERE date_of_birth BETWEEN 'Jan 01, 1990' AND 'Dec 31, 2000'
+GROUP BY species;
