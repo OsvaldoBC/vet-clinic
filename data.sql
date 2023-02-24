@@ -202,6 +202,8 @@ VALUES (
                 WHERE name = 'Jack Harkness'
         )
     );
+
+    
 INSERT INTO visits (animal_id, vet_id, visit_date)
 VALUES (
         (
