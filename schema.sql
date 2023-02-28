@@ -53,3 +53,18 @@ CREATE TABLE visits(
     visit_date DATE,
     PRIMARY KEY(animal_id, vet_id, visit_date)
 );
+
+ALTER TABLE owners ADD COLUMN email VARCHAR(120);
+
+drop table visit
+
+CREATE TABLE visits(
+  id INT GENERATED ALWAYS AS IDENTITY,
+  animal_id INT REFERENCES animals(id),
+  vet_id INT REFERENCES vets(id),
+  date_of_visit DATE,
+  PRIMARY KEY(id)
+);
+
+CREATE INDEX animal_idx ON visits (animal_id);
+CREATE INDEX vet_idx ON visits (vet_id);
